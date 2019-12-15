@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+	<TemplateURL>https://raw.githubusercontent.com/dmleet/docker-templates/master/sqlserver.xml</TemplateURL>
+  	<Beta>False</Beta>
+  	<Category>Downloaders:</Category>
+  	<Name>sqlserver</Name>
+  	<Description>
+    	Microsoft SQL Server
+  	</Description>
+  	<Repository>mcr.microsoft.com/mssql/server:2019-latest</Repository>
+  	<BindTime>true</BindTime>
+  	<Privileged>false</Privileged>
+    <Networking>
+    	<Mode>bridge</Mode>
+    	<Publish>
+      		<Port>
+        		<HostPort>1443</HostPort>
+        		<ContainerPort>1443</ContainerPort>
+        		<Protocol>tcp</Protocol>
+      		</Port>
+    	</Publish>
+  	</Networking>
+  	<Environment>
+	  	<Variable>
+      		<Name>MSSQL_PID</Name>
+      		<Value>Express</Value>
+    	</Variable>
+    	<Variable>
+      		<Name>ACCEPT_EULA</Name>
+      		<Value>Y</Value>
+    	</Variable>
+		<Variable>
+      		<Name>SA_PASSWORD</Name>
+      		<Value>change-me</Value>
+    	</Variable>
+    	<Variable>
+      		<Name>PUID</Name>
+      		<Value>99</Value>
+    	</Variable>
+    	<Variable>
+      		<Name>PGID</Name>
+      		<Value>100</Value>
+    	</Variable>
+  	</Environment>
+  	<Data>
+    	<Volume>
+      		<HostDir>/mnt/cache/appdata/sqlserver</HostDir>
+      		<ContainerDir>/var/opt/mssql</ContainerDir>
+      		<Mode>rw</Mode>
+		</Volume>
+  	</Data>
+</Containers>
+
