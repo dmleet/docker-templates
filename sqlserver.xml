@@ -36,8 +36,18 @@
   	</Environment>
   	<Data>
     	<Volume>
-      		<HostDir>/mnt/cache/appdata/sqlserver</HostDir>
-      		<ContainerDir>/var/opt/mssql</ContainerDir>
+      		<HostDir>/mnt/cache/appdata/sqlserver/data</HostDir>
+      		<ContainerDir>/var/opt/mssql/data</ContainerDir>
+      		<Mode>r</Mode>
+		</Volume>
+		<Volume>
+      		<HostDir>/mnt/cache/appdata/sqlserver/log</HostDir>
+      		<ContainerDir>/var/opt/mssql/log</ContainerDir>
+      		<Mode>r</Mode>
+		</Volume>
+		<Volume>
+      		<HostDir>/mnt/cache/appdata/sqlserver/backups</HostDir>
+      		<ContainerDir>/var/opt/mssql/backups</ContainerDir>
       		<Mode>rw</Mode>
 		</Volume>
   	</Data>
