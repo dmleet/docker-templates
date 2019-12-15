@@ -33,14 +33,6 @@
       		<Name>SA_PASSWORD</Name>
       		<Value>change-me</Value>
     	</Variable>
-    	<Variable>
-      		<Name>PUID</Name>
-      		<Value>99</Value>
-    	</Variable>
-    	<Variable>
-      		<Name>PGID</Name>
-      		<Value>100</Value>
-    	</Variable>
   	</Environment>
   	<Data>
     	<Volume>
@@ -49,5 +41,6 @@
       		<Mode>rw</Mode>
 		</Volume>
   	</Data>
+	<ExtraParams>-m 8g --ulimit stack=8192000:8192000</ExtraParams>
 </Containers>
 
