@@ -13,7 +13,7 @@
   <WebUI/>
   <TemplateURL/>
   <Icon>http://www.xydata.co.uk/wp-content/uploads/2016/02/SQL-Server-250x250.jpg</Icon>
-  <ExtraParams/>
+  <ExtraParams>-m 8g --ulimit stack=8192000:8192000</ExtraParams>
   <PostArgs/>
   <DateInstalled>1575384584</DateInstalled>
   <DonateText/>
