@@ -1,14 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
+<?xml version="1.0"?>
+<Containers version="2">
 	<TemplateURL>https://raw.githubusercontent.com/dmleet/docker-templates/master/sqlserver.xml</TemplateURL>
-  	<Beta>False</Beta>
-  	<Category>Downloaders:</Category>
+	<Icon>http://www.xydata.co.uk/wp-content/uploads/2016/02/SQL-Server-250x250.jpg</Icon>
   	<Name>sqlserver</Name>
-  	<Description>
-    	Microsoft SQL Server
-  	</Description>
-  	<Repository>mcr.microsoft.com/mssql/server:2019-latest</Repository>
-  	<BindTime>true</BindTime>
+  	<Description>Microsoft SQL Server Official</Description>
+  	<Repository>mcr.microsoft.com/mssql/server</Repository>
   	<Privileged>false</Privileged>
     <Networking>
     	<Mode>bridge</Mode>
@@ -31,26 +27,20 @@
     	</Variable>
 		<Variable>
       		<Name>SA_PASSWORD</Name>
-      		<Value>change-me</Value>
+      		<Value>P@ssw0rd</Value>
     	</Variable>
   	</Environment>
   	<Data>
     	<Volume>
-      		<HostDir>/mnt/cache/appdata/sqlserver/data</HostDir>
+      		<HostDir>/mnt/cache/appdata/sqlserver/database/</HostDir>
       		<ContainerDir>/var/opt/mssql/data</ContainerDir>
-      		<Mode>r</Mode>
-		</Volume>
-		<Volume>
-      		<HostDir>/mnt/cache/appdata/sqlserver/log</HostDir>
-      		<ContainerDir>/var/opt/mssql/log</ContainerDir>
-      		<Mode>r</Mode>
-		</Volume>
-		<Volume>
-      		<HostDir>/mnt/cache/appdata/sqlserver/backups</HostDir>
-      		<ContainerDir>/var/opt/mssql/backups</ContainerDir>
       		<Mode>rw</Mode>
 		</Volume>
   	</Data>
 	<ExtraParams>-m 8g --ulimit stack=8192000:8192000</ExtraParams>
+	<Config Name="TCP_1433" Target="1433" Default="" Mode="tcp" Description="TCP port for SQL Communication" Type="Port" Display="always" Required="false" Mask="false">1433</Config>
+  	<Config Name="SA_PASSWORD" Target="SA_PASSWORD" Default="" Mode="" Description="Container Variable: SA_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false">P@ssw0rd</Config>
+  	<Config Name="ACCEPT_EULA" Target="ACCEPT_EULA" Default="" Mode="" Description="Container Variable: ACCEPT_EULA" Type="Variable" Display="always" Required="false" Mask="false">Y</Config>
+  	<Config Name="PersistentStorage" Target="/var/opt/mssql/data" Default="" Mode="rw" Description="Storage location of SQL Server persistent database files" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/SqlServer/database/</Config>
 </Containers>
 
