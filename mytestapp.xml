@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Containers>
-    <TemplateURL>https://raw.githubusercontent.com/dmleet/docker-templates/master/mytestapp.xml</TemplateURL>
-    <Beta>False</Beta>
-    <Category>Downloaders:</Category>
-    <Name>mytestapp</Name>
-    <Description>
-      	ASPNET Core 3.1 Test App
-    </Description>
-    <Repository>dmleet/mytestapp</Repository>
-    <BindTime>true</BindTime>
-    <Privileged>false</Privileged>
-      	<Networking>
-      	<Mode>proxynet</Mode>
-    </Networking>
-    <Environment>
-      	<Variable>
-        	<Name>PUID</Name>
-        	<Value>99</Value>
-      	</Variable>
-      	<Variable>
-        	<Name>PGID</Name>
-        	<Value>100</Value>
-      	</Variable>
+	<TemplateURL>https://raw.githubusercontent.com/dmleet/docker-templates/master/mytestapp.xml</TemplateURL>
+	<Name>mytestapp</Name>
+	<Description>ASPNET Core 3.1 Test App</Description>
+	<Repository>dmleet/mytestapp</Repository>
+	<Privileged>false</Privileged>
+	<Networking>
+		<Mode>proxynet</Mode>
+	</Networking>
+	<Environment>
+		<Variable>
+			<Name>PUID</Name>
+			<Value>99</Value>
+		</Variable>
+		<Variable>
+			<Name>PGID</Name>
+			<Value>100</Value>
+		</Variable>
 	</Environment>
 	<Data>
-      	<Volume>
-			<HostDir>/mnt/cache/appdata/config</HostDir>
-      		<ContainerDir>/config</ContainerDir>
-      		<Mode>rw</Mode>
-    	</Volume>
-  	</Data>
-  	<WebUI>https://[IP]:[PORT:6443]/</WebUI>
-  	<ExtraParams></ExtraParams>
+		<Volume>
+			<HostDir>/mnt/cache/appdata/mytestapp/</HostDir>
+			<ContainerDir>/app</ContainerDir>
+			<Mode>rw</Mode>
+		</Volume>
+	</Data>
+	<WebUI>https://[IP]:[PORT:6443]/</WebUI>
 </Containers>
